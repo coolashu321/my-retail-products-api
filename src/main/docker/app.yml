@@ -1,0 +1,16 @@
+version: '2'
+services:
+  my-retail-products-api:
+    image: my-retail-products-api
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_DATA_MONGODB_HOST=my-retail-products-api-mongodb
+    ports:
+        - '8080:8080'
+  my-retail-products-api-mongodb:
+    extends:
+      file: mongodb.yml
+      service: my-retail-products-api-mongodb
+    environment:
+      - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=native
+      - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS=file:./central-config/docker-config/

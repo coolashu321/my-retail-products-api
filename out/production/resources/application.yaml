@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+
+application:
+  redsky:
+    url: https://redsky-uat.perf.target.com
+    apiKey: 3yUxt7WltYG7MFKPp7uyELi1K40ad2ys
