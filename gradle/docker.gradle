@@ -1,0 +1,16 @@
+jib {
+    from {
+        image = "rainbowzephyr/openjdk17:jdk17-fftw-alpine"
+    }
+    to {
+        image = "my-retail-products-api:latest"
+    }
+    container {
+        entrypoint = ["sh", "-c", "chmod +x /entrypoint.sh && sync && /entrypoint.sh"]
+        ports = ["8080", "5701/udp" ]
+        environment = [
+            SPRING_OUTPUT_ANSI_ENABLED: "ALWAYS"
+        ]
+    }
+}
+
